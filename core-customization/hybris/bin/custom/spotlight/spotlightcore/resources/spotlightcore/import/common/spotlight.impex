@@ -1,0 +1,33 @@
+
+
+$lang = en
+$indexType = electronicsProductType
+$catalogVersion = catalogVersion(catalog(id[default='electronicsProductCatalog']), version[default='Online'])[unique=true, default='electronicsProductCatalog:Online']
+
+
+INSERT_UPDATE ServicelayerJob; code[unique = true]     ; springId[unique = true]
+                             ; topSellerPerformableJob ; topSellerPerformableJob
+
+INSERT_UPDATE AsSearchProfileActivationSet; indexType[unique = true]; $catalogVersion; searchProfiles(code)
+                                          ; electronicsProductType ; ;topSellerSimpleProfile
+
+INSERT_UPDATE AsSimpleSearchConfiguration; searchProfile(code)[unique = true]; uid[unique = true]     ; uniqueIdx[unique = true];$catalogVersion
+;topSellerSimpleProfile;fd7d8009-df2f-4b78-9747;5b50efb244df
+
+INSERT_UPDATE AsSimpleSearchProfile; code[unique = true]    ; name[lang = $lang]        ; indexType; $catalogVersion;searchConfigurations
+                                   ; topSellerSimpleProfile ; Top Seller Simple Profile ; $indexType;;
+
+INSERT_UPDATE TopSellerCronjob; code[unique = true]; job(code)               ; baseSite(uid)[unique = true]; searchProfile(code)
+                              ; topSellerCronJob   ; topSellerPerformableJob ; electronics                 ; topSellerSimpleProfile
+
+#####Solr related properties #######
+INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];type(code);sortableType(code);currency[default=false];localized[default=false];multiValue[default=false];useForSpellchecking[default=false];useForAutocomplete[default=false];fieldValueProvider;valueProviderParameter;ftsPhraseQuery[default=false];ftsPhraseQueryBoost;ftsQuery[default=false];ftsQueryBoost;ftsFuzzyQuery[default=false];ftsFuzzyQueryBoost;ftsWildcardQuery[default=false];ftsWildcardQueryType(code)[default=POSTFIX];ftsWildcardQueryBoost;ftsWildcardQueryMinTermLength
+;$indexType; popularity                   ;long   ;sortabletext;    ;;    ;;;topSellerProductValueResolver                  ;;;;; ;;;    ;   ;  ;
+
+# Define the available sorts
+INSERT_UPDATE SolrSort;&sortRefID;indexedType(identifier)[unique=true];code[unique=true];name[lang=$lang];useBoost
+;popularity;$indexType;popularity;Popular;true
+
+# Define the sort fields
+INSERT_UPDATE SolrSortField;sort(indexedType(identifier),code)[unique=true];fieldName[unique=true];ascending[unique=true]
+;$indexType:popularity;popularity;false
