@@ -27,4 +27,21 @@ Execution:
 
 Please use the code along with SAP Commerce Suite 2205 and sapmachine-17.
 
+Custom Code paths:
+
+Conjob: https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/src/au/com/spotlight/core/job/TopSellerPerformableJob.java
+
+Dao : https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/src/au/com/spotlight/core/topseller/dao/TopSellerDao.java
+
+Dao.implementation: https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/src/au/com/spotlight/core/topseller/dao/impl/DefaultTopSellerDao.java
+
+Service: https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/src/au/com/spotlight/core/topseller/service/TopSellerService.java
+
+Service.implementation: https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/src/au/com/spotlight/core/topseller/service/impl/DefaultTopSellerService.java
+
+Impex: 
+
+https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/resources/spotlightcore/import/common/cronjobs.impex
+
+
 ![image](https://user-images.githubusercontent.com/35945754/182023776-a8047e1d-d503-4b49-8c8f-5ac82bc24278.png)
