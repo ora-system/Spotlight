@@ -41,6 +41,8 @@ Service.implementation: https://github.com/ora-system/Spotlight/blob/main/core-c
 
 Resolver for Sorting : https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/src/au/com/spotlight/core/search/resolver/TopSellerProductValueResolver.java
 
+Test Class: https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/testsrc/au/com/spotlight/core/job/TopSellerPerformableJobTest.java
+
 Impex: 
 
 https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/resources/spotlightcore/import/common/spotlight.impex
