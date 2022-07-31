@@ -39,9 +39,11 @@ Service: https://github.com/ora-system/Spotlight/blob/main/core-customization/hy
 
 Service.implementation: https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/src/au/com/spotlight/core/topseller/service/impl/DefaultTopSellerService.java
 
+Resolver for Sorting : https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/src/au/com/spotlight/core/search/resolver/TopSellerProductValueResolver.java
+
 Impex: 
 
-https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/resources/spotlightcore/import/common/cronjobs.impex
+https://github.com/ora-system/Spotlight/blob/main/core-customization/hybris/bin/custom/spotlight/spotlightcore/resources/spotlightcore/import/common/spotlight.impex
 
 
 ![image](https://user-images.githubusercontent.com/35945754/182023776-a8047e1d-d503-4b49-8c8f-5ac82bc24278.png)
