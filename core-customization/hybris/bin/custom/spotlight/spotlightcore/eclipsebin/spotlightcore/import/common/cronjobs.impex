@@ -1,0 +1,38 @@
+# FS CRON JOB
+INSERT_UPDATE CronJob; code[unique = true]                    ; job(code)[unique = true]           ; sessionLanguage(isoCode)[default = en]
+                     ; customersWithOrdersRetentionCronJob    ; customersWithOrdersRetentionJob    ;
+                     ; customersWithoutOrdersRetentionCronJob ; customersWithoutOrdersRetentionJob ;
+                     ; ordersRetentionCronJob                 ; ordersRetentionJob                 ;
+                     ; ticketsRetentionCronJob                ; ticketsRetentionJob                ;
+                     ; ticketsStagnationJob                   ; ticketsFSStagnationJob             ;
+
+# Run CronJobs at 3:05 AM every day
+INSERT_UPDATE Trigger; cronJob(code)[unique = true]           ; second[default = 0]; minute[default = 5]; hour[default = 3]; day[default = -1]; month[default = -1]; year[default = -1]; relative[default = false]; active[default = false]; maxAcceptableDelay[default = -1]
+                     ; customersWithOrdersRetentionCronJob    ;
+                     ; customersWithoutOrdersRetentionCronJob ;
+                     ; ordersRetentionCronJob                 ;
+                     ; ticketsRetentionCronJob                ;
+# Run the CloseStagnantServiceTicketsJob at 12:05 AM every day
+                     ; ticketsStagnationJob                   ;                    ;                    ; 12               ; 0                ;                    ;                   ;                          ; true                   ;
+
+
+$lang = en
+$indexType = electronicsProductType
+$catalogVersion = catalogVersion(catalog(id[default='electronicsProductCatalog']), version[default='Online'])[unique=true, default='electronicsProductCatalog:Online']
+
+
+INSERT_UPDATE ServicelayerJob; code[unique = true]     ; springId[unique = true]
+                             ; topSellerPerformableJob ; topSellerPerformableJob
+
+INSERT_UPDATE AsSearchProfileActivationSet; indexType[unique = true]; $catalogVersion; searchProfiles(code)
+                                          ; electronicsProductType ; ;topSellerSimpleProfile
+
+INSERT_UPDATE AsSimpleSearchConfiguration; searchProfile(code)[unique = true]; uid[unique = true]     ; uniqueIdx[unique = true];$catalogVersion
+;topSellerSimpleProfile;fd7d8009-df2f-4b78-9747;5b50efb244df
+
+INSERT_UPDATE AsSimpleSearchProfile; code[unique = true]    ; name[lang = $lang]        ; indexType; $catalogVersion;searchConfigurations
+                                   ; topSellerSimpleProfile ; Top Seller Simple Profile ; $indexType;;
+
+INSERT_UPDATE TopSellerCronjob; code[unique = true]; job(code)               ; baseSite(uid)[unique = true]; searchProfile(code)
+                              ; topSellerCronJob   ; topSellerPerformableJob ; electronics                 ; topSellerSimpleProfile
+
