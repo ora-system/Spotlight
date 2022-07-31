@@ -16,4 +16,11 @@ public interface TopSellerDao {
      */
     List<ProductModel> getTopSellingProducts(BaseSiteModel baseSiteModel);
 
+    /**
+     * @param productModel
+     * @param baseSiteModel
+     * @return
+     */
+    Long getTopQuantityForProduct(final ProductModel productModel,final BaseSiteModel baseSiteModel);
+
 }

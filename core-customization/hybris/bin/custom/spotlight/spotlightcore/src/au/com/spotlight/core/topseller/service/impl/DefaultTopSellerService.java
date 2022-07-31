@@ -15,7 +15,7 @@ import static de.hybris.platform.servicelayer.util.ServicesUtil.validateParamete
  */
 public class DefaultTopSellerService implements TopSellerService {
 
-    private static final Logger LOG =Logger.getLogger(DefaultTopSellerService.class);
+    private static final Logger LOG = Logger.getLogger(DefaultTopSellerService.class);
 
     private TopSellerDao topSellerDao;
 
@@ -26,10 +26,20 @@ public class DefaultTopSellerService implements TopSellerService {
     @Override
     public List<ProductModel> getTopSellingProducts(BaseSiteModel baseSiteModel) {
         validateParameterNotNull(baseSiteModel, "baseSiteModel must not be null!");
-        if(LOG.isDebugEnabled()){
+        if (LOG.isDebugEnabled()) {
             LOG.debug("Service for TopSeller products");
         }
         return getTopSellerDao().getTopSellingProducts(baseSiteModel);
+    }
+
+    /**
+     * @param productModel
+     * @param baseSiteModel
+     * @return
+     */
+    @Override
+    public Long getTopQuantityForProduct(ProductModel productModel, BaseSiteModel baseSiteModel) {
+        return getTopSellerDao().getTopQuantityForProduct(productModel, baseSiteModel);
     }
 
     public TopSellerDao getTopSellerDao() {

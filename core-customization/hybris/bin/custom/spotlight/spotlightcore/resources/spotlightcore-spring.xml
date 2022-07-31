@@ -554,4 +554,8 @@
 		<property name="asConfigurationService" ref="asConfigurationService"/>
 	</bean>
 
+	<bean id="topSellerProductValueResolver" class="au.com.spotlight.core.search.resolver.TopSellerProductValueResolver" parent="abstractValueResolver">
+		<property name="topSellerService" ref="topSellerService"/>
+	</bean>
+
 </beans>
